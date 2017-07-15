@@ -1,5 +1,9 @@
 package util
 
+import (
+	"reflect"
+)
+
 func Max(target []int) int {
 	var result int
 
@@ -22,4 +26,23 @@ func Min(target []int) int {
 	}
 
 	return result
+}
+
+func InArray(target interface{}, arr []interface{}) (exists bool) {
+	exists = false
+
+	switch reflect.TypeOf(arr).Kind() {
+		case reflect.Slice:
+			s := reflect.ValueOf(arr)
+			len := s.Len()
+
+			for i := 0; i < len; i++ {
+				if reflect.DeepEqual(target, s.Index(i).Interface()) == true {
+					exists = true
+					return
+				}
+			}
+	}
+
+	return
 }

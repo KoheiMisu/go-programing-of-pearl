@@ -13,7 +13,7 @@ func TestGenerateAnagram(t *testing.T) {
 	word := "top"
 
 	// assert generated anagram result
-	generated := GenerateAnagram(word)
+	generated := GenerateAnagram(word, 0, len(word))
 
 	if !reflect.DeepEqual(generated, expectedDataSet) {
 		t.Errorf("diff %v and %v", generated, expectedDataSet)

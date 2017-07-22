@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func GenerateAnagram(word string) (results []string) {
+func GenerateAnagram(word string, i int, wordLength int) (results []string) {
 	splitted := strings.Split(word,"")
 
 	//func setAnagram() {
